@@ -1,0 +1,9 @@
+<div class="login">
+  <h2 class="login-header">{{props!['login']}}</h2>
+
+  <form [formGroup]="authForm!" class="login-container" (ngSubmit)="signIn()">
+    <p><input type="email" placeholder="{{props['username']}}" formControlName="username"></p>
+    <p><input type="password" placeholder="{{props['password']}}" formControlName="password"></p>
+    <p><input type="submit" value="Log in"></p>
+  </form>
+</div>

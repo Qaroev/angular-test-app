@@ -14,6 +14,7 @@ import {UserService} from "./services/user.service";
 import {AuthenticationService} from "./services/authentication.service";
 import {PermissionGuard} from "./guards/permission.guard";
 import {AuthGuard} from "./guards/auth.guard";
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {AuthGuard} from "./guards/auth.guard";
     ProfilePageComponent,
     SettingsPageComponent,
     HomePageComponent,
-    NotfoundPageComponent
+    NotfoundPageComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

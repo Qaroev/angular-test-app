@@ -19,8 +19,9 @@ export class LocaleService {
       return of(this.props);
     }
     return this.http.get(this.path).pipe(map((res) => {
-      this.props = JSON.stringify(res) as any;
-      setToLocalStorage(this.path, res);
+      this.props = JSON.parse(JSON.stringify(res) as any);
+      setToLocalStorage(this.path, JSON.stringify(res));
+      return of(this.props);
     }))
   }
 }

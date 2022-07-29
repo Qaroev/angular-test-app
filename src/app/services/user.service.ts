@@ -6,6 +6,7 @@ import {User} from "../models/user";
 @Injectable()
 export class UserService {
 
+  pathUserData = './assets/usersData.json'
   private _currentUser!: User;
 
   public get currentUser(): User {
@@ -25,7 +26,7 @@ export class UserService {
   }
 
   public getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>('./assets/usersData.json');
+    return this.http.get<User[]>(this.pathUserData);
   }
 
   public hasPermission(permission: string): boolean {

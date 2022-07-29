@@ -3,7 +3,7 @@
   userName?: string;
   firstName?: string;
   lastName?: string;
-  password?: string // It is not good idea to save any password to locale storage, but in this application we save password just for test:)
+  password?: string
   access?: UserAccess
 }
 

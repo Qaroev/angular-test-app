@@ -8,7 +8,8 @@
     "access": {
       "permissions": [
         "VIEW_PROFILE",
-        "VIEW_SETTINGS"
+        "VIEW_SETTINGS",
+        "VIEW_HOME"
       ],
       "abilities": [
         "EDIT_USER_DATA"
@@ -23,6 +24,7 @@
     "password": "admin123",
     "access": {
       "permissions": [
+        "VIEW_HOME",
         "VIEW_PROFILE"
       ],
       "abilities": []

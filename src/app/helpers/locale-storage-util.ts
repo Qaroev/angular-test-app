@@ -1,21 +1,15 @@
 export function getFromLocalStorage(key: string): any {
-  if (window.localStorage) {
-    const str = localStorage.getItem(key);
-    if (str) {
-        return str;
-    }
-  }
-  return null;
+  return localStorage.getItem(key)
 }
 
-export function setToLocalStorage(key: string, data: any): void {
-  if (window.localStorage) {
-    localStorage.setItem(key, JSON.stringify(data));
-  }
+export function setToLocalStorage(key: string, data: string): void {
+  localStorage.setItem(key, data);
 }
 
 export function removeLocalStorage(key: string): void {
-  if (window.localStorage) {
-    localStorage.removeItem(key);
-  }
+  localStorage.removeItem(key);
+}
+
+export function clearStorage(): void {
+  localStorage.clear();
 }

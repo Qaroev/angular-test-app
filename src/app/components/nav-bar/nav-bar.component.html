@@ -1,0 +1,8 @@
+<ul class="topnav">
+  <ng-container *ngFor="let item of navBarItems">
+    <li *ngIf="item.show===true">
+      <a [routerLinkActive]="['active']" [routerLink]="[item.link]">{{props![item.propName]}}</a>
+    </li>
+  </ng-container>
+  <li class="right"><a (click)="logout()">{{props!["logout"]}}</a></li>
+</ul>

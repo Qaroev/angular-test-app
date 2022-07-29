@@ -1,11 +1,6 @@
-<!-- nav -->
-<ul class="topnav" *ngIf="isLoggedIn">
-  <li><a class="active" href="/home">{{locale.props["home"]}}</a></li>
-  <li><a href="/profile" >{{locale.props["profile"]}}</a></li>
-  <li><a href="/settings">{{locale.props["settings"]}}</a></li>
-  <li class="right"><a (click)="logout()">{{locale.props["logout"]}}</a></li>
-</ul>
-
-<div class="parent">
+<header *ngIf="isLoggedIn">
+  <app-nav-bar></app-nav-bar>
+</header>
+<div>
   <router-outlet></router-outlet>
 </div>

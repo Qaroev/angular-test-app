@@ -1,25 +1,25 @@
 ﻿import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {getFromLocalStorage} from "../helpers/locale-storage-util";
+import {AuthenticationService} from "../services/authentication.service";
 
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authService: AuthenticationService
+  ) {
+  }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    let itt=this.isLoggedIn();
-    console.log(itt);
-    if (this.isLoggedIn()) {
+    if (this.authService.isLoggedIn()) {
       return true;
     }
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login']).then();
     return false;
-  }
-  public isLoggedIn(): boolean {
-    return getFromLocalStorage('isLoggedIn') == 'true';
   }
 }

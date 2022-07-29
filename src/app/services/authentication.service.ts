@@ -2,7 +2,7 @@
 import {HttpClient} from '@angular/common/http';
 import {mergeMap, Observable, of} from "rxjs";
 import {UserService} from "./user.service";
-import {removeLocalStorage, setToLocalStorage} from "../helpers/locale-storage-util";
+import {getFromLocalStorage, removeLocalStorage, setToLocalStorage} from "../helpers/locale-storage-util";
 
 @Injectable({providedIn: 'root'})
 export class AuthenticationService {
@@ -18,7 +18,7 @@ export class AuthenticationService {
       if (user) {
         this.userService.currentUser = user;
         setToLocalStorage('isLoggedIn', 'true');
-        setToLocalStorage('user', JSON.stringify(user));
+        setToLocalStorage('userData', JSON.stringify(user));
         return of(true);
       }
 
@@ -28,6 +28,10 @@ export class AuthenticationService {
 
   logout() {
     removeLocalStorage('isLoggedIn');
-    removeLocalStorage('user');
+    removeLocalStorage('userData');
+  }
+
+  isLoggedIn(): boolean {
+    return getFromLocalStorage('isLoggedIn') === 'true'
   }
 }
